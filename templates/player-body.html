@@ -1,22 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Exercise Player</title>
-  <link rel="stylesheet" href="./styles/JSAV.css" type="text/css" />
-  <link rel="stylesheet" href="./styles/exercise-player.css" type="text/css" />
-  <script src="./lib/jquery.min.js"></script>
-  <script src="./lib/jquery-ui.min.js"></script>
-  <script src="./lib/jquery.transit.js"></script>
-  <script src="./lib/raphael.js"></script>
-  <script src="./lib/JSAV-min.js"></script>
-</head>
-<body>
-	<header>
-		<h1>Exercise Player</h1>
-	</header>
+<button type="button" id="show-player">Show player</button>
+
+<!-- Inline <style> to ensure that #jaalPlayerModal will not become visible
+before exercise-player.css is loaded and applied. -->
+<style>
+#jaalPlayerModal {
+  display: none;
+}
+</style>
+
+  <div id="jaalPlayerModal" class="jaalModalContent">
+  <span class="jaal-close" id="close-player-modal">&times;</span>
+
 
   <div class="joint-controls">
 		<p>Displays a student's solution along with a model solution for a visual algorithm simulation exercise from a JAAL 1.0 file.</p>
@@ -40,8 +34,7 @@
       <p>In this mode you can see all the click actions and if the model answer was opened</p>
   </div>
 
-	<button type="button" value="detailed" id="view-mode-button">Switch to detailed view</button>
-
+  <!-- Student's answer view -->
   <div class="views-container">
 
     <div class="animation-view">
@@ -63,6 +56,7 @@
       <div id="animation-container"></div>
     </div>
 
+    <!-- Model answer view -->
     <div class="model-answer-view">
 			<div class="heading-container">
 				<h2>Model answer</h2>
@@ -82,8 +76,20 @@
       <div id="model-answer-container" class="jsavcanvas"></div>
     </div>
 
+  <!-- JSON tree view for JAAL data -->
+  <div id="jaalTreeModal" class="jaalModal">
+    <div class="jaalModalContent">
+      <div>
+        <span class="jaal-close" id="jaalTreeModal-close">&times;</span>
+      </div>
+      <div>
+        <p>JSON Algorithm Animation Language (JAAL) viewer</p>
+        <label for="html-to-string">Display JAAL HTML content as string</label>
+        <input type="checkbox" id="html-to-string" value="">
+        <button type="button" id="show-jaal">Show</button>
+        <div id="jaalTreeContent"></div>
+      </div>
+    </div>
   </div>
 
-</body>
-<script src="./build/player-bundle.js"></script>
-</html>
+</div> <!-- .jaalModalContent -->

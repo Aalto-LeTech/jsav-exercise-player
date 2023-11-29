@@ -1,0 +1,1 @@
+../../../build/jsav-exercise-player-bundle.js

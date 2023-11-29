@@ -1,3 +1,8 @@
+// slideShow.js
+//
+// Implements static slideshow of an algoritm visualization which can be
+// viewed step by step by clicking buttons on the GUI.
+
 class DOMSlideShow {
   stepCount = -1;
   constructor(initialStateHTML, animationSteps, canvas) {
@@ -19,9 +24,7 @@ class DOMSlideShow {
     if (this.stepCount < this.animationSteps.length -1) {
       this.stepCount++;
       this.setCanvas();
-    } else {
-      this.canvas.animationCanvas.innerHTML = '<h3>Ended</h3>';
-    }
+    } 
   }
 
   toEnd() {
@@ -38,12 +41,17 @@ class DOMSlideShow {
     this.canvas.animationCanvas.innerHTML = this.initialStateHTML;
   }
 
+  /**
+   * update the inner canvas to the new svg image if it exists. 
+   */
   setCanvas() {
-    if(this.animationSteps[this.stepCount].type.includes('model')) {
-      this.canvas.modelAnswerCanvas.innerHTML = this.animationSteps[this.stepCount].modelAnswerHTML;
-    } else {
-      this.canvas.animationCanvas.innerHTML = this.animationSteps[this.stepCount].animationHTML;
-    }
+    if (this.animationSteps[this.stepCount].image) {
+      this.canvas.animationCanvas.innerHTML = 
+            this.animationSteps[this.stepCount].image;
+    } else if (this.animationSteps[this.stepCount].svg) {
+      this.canvas.animationCanvas.innerHTML = 
+            this.animationSteps[this.stepCount].svg;
+    } 
   }
 
 }

@@ -1,17 +1,17 @@
 /* The main modal (pop-up) box for JSAV exercise player. All player-related
  * content is inside this <div> element. */
 #jaalPlayerModal {
-  display: none; /* Hidden by default */
-  position: fixed;
+  /* position: fixed;
   top: 5px;
-  left: 0px;
-  width: 1200px;
+  left: 0px; */
+  width: 1800px;
+  min-height: 800px;
   /* The following rules mimick a bootstrap.js styled
    * .modal-dialog used in A+ LMS. */
   background: #FFF;
   border: 1px solid rgba(0,0,0,.2);
   border-radius: 6px;
-  box-shadow: 0 5px 15px rgba(0,0,0,.5);
+  /* box-shadow: 0 5px 15px rgba(0,0,0,.5); */
 }
 
 /* JSAV and OpenDSA specific modifications for JSAV Exercise Player.
@@ -41,6 +41,7 @@
 
 #jaalPlayerModal .jsavcanvas {
   min-width: 200px !important;
+  height: 550px;
   margin: 5px;
 }
 
@@ -113,7 +114,7 @@
 #jaalPlayerModal .compare-view,
 #jaalPlayerModal .detailed-view {
   text-align: center;
-  margin: 0.3rem;
+  margin: 2px;
 }
 
 #jaalPlayerModal .jsavoutput .jsavtitle {
@@ -134,10 +135,8 @@
 
 #jaalPlayerModal .animation-view,
 #jaalPlayerModal .model-answer-view {
-  width: 600px;
-  border: solid 1px rgb(118,118,118);
-	border-radius: 10px;
-	border-style: dashed;
+  width: 900px;
+  border: solid 1px black;
   margin: 2px;
   padding: 2px;
 }
@@ -216,7 +215,6 @@ display: none;
 
 #jaalPlayerModal .no-data {
   text-align: center;
-	color: red;
 }
 
 #jaalPlayerModal .model-answer {
